@@ -36,4 +36,26 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    /**
+     * ユーザー名とメールアドレスで認証
+     * @link http://y6rasaki.hatenablog.com/entry/2016/11/17/222713
+     */
+    protected function credentials(Request $request)
+    {
+        $login = $request->input('login');
+        $field = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'name';
+        $request->merge([$field => $login]);
+        return $request->only($field, 'password');
+    }
+
+    /**
+     * Get the login username to be used by the controller.
+     *
+     * @return string
+     */
+    public function username()
+    {
+        return 'login';
+    }
 }
