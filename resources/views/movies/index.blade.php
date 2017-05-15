@@ -2,7 +2,7 @@
 
 @section('title', '動画一覧')
 
-@section('app')
+@section('content')
 
 <h1>動画一覧</h1>
 
