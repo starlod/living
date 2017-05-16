@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         Commands\AddUser::class,
         Commands\DropUser::class,
+        Commands\MovieUp::class,
     ];
 
     /**

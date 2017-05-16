@@ -8,7 +8,6 @@ use App\Models\User;
 /**
  * ユーザーを追加するコマンド
  *
- * @author 2ndwave.imamura
  * @example php artisan drop:user -u yuki
  */
 class DropUser extends Command

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'MoviesController@index')->name('home');
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/movies', 'MoviesController@index')->name('movies.index');
 Route::get('/movies/create', 'MoviesController@create')->name('movies.create');

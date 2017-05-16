@@ -8,7 +8,6 @@ use App\Models\User;
 /**
  * ユーザーを追加するコマンド
  *
- * @author 2ndwave.imamura
  * @example php artisan add:user -u yuki -p secret -e starlod.ggl@gmail.com
  */
 class AddUser extends Command
