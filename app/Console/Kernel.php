@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
         Commands\AddUser::class,
         Commands\DropUser::class,
         Commands\MovieUp::class,
+        Commands\MovieDown::class,
     ];
 
     /**

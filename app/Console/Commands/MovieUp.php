@@ -40,6 +40,7 @@ class MovieUp extends Command
     public function handle()
     {
         $files = Storage::disk('local')->files('temp/movies');
+        $files = array_diff($files, ['temp/movies/.gitkeep']);
 
         foreach ($files as $file) {
             $pathinfo = pathinfo($file);
