@@ -12,7 +12,16 @@
 */
 
 Route::get('/', 'MoviesController@index')->name('home');
-// Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('fate/holy_grail_war', function () {
+    return view('fate.holy_grail_war');
+});
+
+Route::get('fate/servant', function () {
+    return view('fate.servant');
+});
+
+
 
 Route::get('/movies', 'MoviesController@index')->name('movies.index');
 Route::get('/movies/create', 'MoviesController@create')->name('movies.create');
