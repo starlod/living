@@ -10,9 +10,11 @@ class Movie extends Model
     protected $table = 'movies';
 
     protected $fillable = [
-        'name',         // ファイル名
+        'name',         // ファイル名（拡張子を除く）
+        'status',       // ステータス
         'title',        // 動画タイトル
-        'path',         // ファイルパス
+        'path',         // ファイルパス(storage/movies からの相対パス)
+        'extension',    // 拡張子
         'size',         // 動画サイズ（byte）
         'time',         // 動画時間（分）
     ];
@@ -26,13 +28,18 @@ class Movie extends Model
         });
     }
 
-    public function asset_path()
+    public function assetThumbnails()
     {
-        return asset('storage/' . $this->path);
+        return asset('storage/movies/' . $this->path);
+    }
+
+    public function assetMovie()
+    {
+        return asset('storage/movies/' . $this->path);
     }
 
     private function onDeletedHandler()
     {
-        Storage::delete('public/' . $this->path);
+        Storage::delete('public/movies/' . $this->path);
     }
 }

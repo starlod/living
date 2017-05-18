@@ -43,15 +43,25 @@ class MovieUp extends Command
         $files = array_diff($files, ['temp/movies/.gitkeep']);
 
         foreach ($files as $file) {
-            $pathinfo = pathinfo($file);
-            Storage::move('temp/movies/' . $pathinfo['basename'], 'public/movies/' . $pathinfo['basename']);
-            Movie::create([
-                'name'  => $pathinfo['basename'],
-                'title' => $pathinfo['filename'],
-                'path'  => 'movies/' . $pathinfo['basename'],
-                'size'  => 0,
-                'time'  => 0,
+            $pathInfo = pathinfo($file);
+
+            $fileSize = Storage::size($file);
+            $baseName = $pathInfo['basename'];
+            $extension = $pathInfo['extension'];
+            $hashName = hash_file('sha512', storage_path('app/' . $file));
+            $filePath = $hashName . '.' . $extension;
+            Storage::move('temp/movies/' . $pathInfo['basename'], 'public/movies/' . $filePath);
+            $movie = Movie::create([
+                'name'      => $hashName,
+                'status'    => 'public',
+                'title'     => $pathInfo['filename'],
+                'path'      => $filePath,
+                'extension' => $extension,
+                'size'      => $fileSize,
+                'time'      => 0,
             ]);
+
+            $this->info("[$movie->path] $movie->title");
         }
     }
 }
