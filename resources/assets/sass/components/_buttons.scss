@@ -1,0 +1,23 @@
+.btn-prev:before {
+    margin-right: 5px;
+    font-family: FontAwesome;
+    content: "\f053";
+}
+
+.btn-prev {
+    color: #636b6f;
+    background-color: MistyRose;
+    border-color: #ccc;
+}
+
+.btn-next {
+    color: #636b6f;
+    background-color: Azure;
+    border-color: #ccc;
+}
+
+.btn-next:after {
+    margin-left: 5px;
+    font-family: FontAwesome;
+    content: "\f054";
+}
