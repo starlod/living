@@ -12,7 +12,7 @@ class LoginHistory extends Model
     protected $fillable = [
         'user_id',              // ユーザーID
         'status',               // ステータス
-        'login_at',             // ログイン日時
+        'action_at',            // アクション日時
         'agent',                // エージェント
         'ip',                   // IP
         'errors',               // エラー
