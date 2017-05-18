@@ -11,15 +11,16 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset_ver('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
         @include('components._header')
         @yield('content')
+        @include('components._footer')
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset_ver('js/app.js') }}"></script>
 </body>
 </html>

@@ -23,6 +23,7 @@
                     &nbsp;
                 @else
                     <li>{{ link_to('fate/holy_grail_war', '聖杯戦争とは') }}</li>
+                    <li>{{ link_to('fate/servant', 'サーヴァントとは') }}</li>
                 @endif
             </ul>
 
