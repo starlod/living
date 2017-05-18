@@ -38,6 +38,16 @@ class Movie extends Model
         return asset('storage/movies/' . $this->path);
     }
 
+    public function prev()
+    {
+        return self::find($this->id - 1);
+    }
+
+    public function next()
+    {
+        return self::find($this->id + 1);
+    }
+
     private function onDeletedHandler()
     {
         Storage::delete('public/movies/' . $this->path);

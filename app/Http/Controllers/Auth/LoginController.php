@@ -78,7 +78,7 @@ class LoginController extends Controller
         LoginHistory::create([
             'user_id'      => $user->id,
             'status'       => 'authenticated',
-            'login_at'     => new \DateTime(),
+            'action_at'    => new \DateTime(),
             'agent'        => $_SERVER['HTTP_USER_AGENT'],
             'ip'           => $_SERVER['REMOTE_ADDR'],
             'errors'       => '',
@@ -98,7 +98,7 @@ class LoginController extends Controller
         LoginHistory::create([
             'user_id'      => $request->user()->id,
             'status'       => 'logout',
-            'login_at'     => new \DateTime(),
+            'action_at'    => new \DateTime(),
             'agent'        => $_SERVER['HTTP_USER_AGENT'],
             'ip'           => $_SERVER['REMOTE_ADDR'],
             'errors'       => '',
@@ -126,7 +126,7 @@ class LoginController extends Controller
         LoginHistory::create([
             'user_id'      => 0,
             'status'       => 'auth_failed',
-            'login_at'     => new \DateTime(),
+            'action_at'    => new \DateTime(),
             'agent'        => $_SERVER['HTTP_USER_AGENT'],
             'ip'           => $_SERVER['REMOTE_ADDR'],
             'errors'       => trans('auth.failed'),

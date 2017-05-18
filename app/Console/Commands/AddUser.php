@@ -17,7 +17,7 @@ class AddUser extends Command
      *
      * @var string
      */
-    protected $signature = 'add:user {--u|user=} {--p|password=} {--e|email=}';
+    protected $signature = 'add:user {--u|user=} {--p|password=} {--e|email=} {--r|role=}';
 
     /**
      * The console command description.
@@ -46,6 +46,7 @@ class AddUser extends Command
         $name     = $this->option('user');
         $password = $this->option('password');
         $email    = $this->option('email');
+        $role     = $this->option('role');
 
         while (empty($name)) {
             $name = $this->ask('ユーザー名を入力してください。');
@@ -64,7 +65,7 @@ class AddUser extends Command
             return false;
         }
 
-        if ($user = User::add(compact('name', 'password', 'email'))) {
+        if ($user = User::add(compact('name', 'password', 'email', 'role'))) {
             $this->info("[$user->id] $name<$email> ユーザーを登録しました。");
             logger()->info("[$user->id] $name<$email> ユーザーを登録しました。");
             return true;

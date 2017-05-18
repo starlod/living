@@ -21,8 +21,6 @@ Route::get('fate/servant', function () {
     return view('fate.servant');
 });
 
-
-
 Route::get('/movies', 'MoviesController@index')->name('movies.index');
 Route::get('/movies/create', 'MoviesController@create')->name('movies.create');
 Route::get('/movies/{id}', 'MoviesController@show')->name('movies.show');
@@ -37,8 +35,8 @@ Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
-// Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-// Route::post('register', 'Auth\RegisterController@register');
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');
 
 // Password Reset Routes...
 // Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');

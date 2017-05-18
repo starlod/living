@@ -15,7 +15,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'email',
+        'password',
+        'role_name',
+        'ip',
     ];
 
     /**
@@ -49,9 +53,11 @@ class User extends Authenticatable
     public static function add(array $data)
     {
         return self::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'name'      => $data['name'],
+            'email'     => $data['email'],
+            'role_name' => $data['role_name'] ?: 'general',
+            'password'  => bcrypt($data['password']),
+            'ip'        => $_SERVER['REMOTE_ADDR'],
         ]);
     }
 }
